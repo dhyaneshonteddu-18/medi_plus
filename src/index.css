@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100;
+  }
+  
+  .dark {
+    color-scheme: dark;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 text-primary-600 dark:text-primary-400 font-semibold px-6 py-3 rounded-lg transition-all duration-200 border-2 border-primary-600 dark:border-primary-500;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-gray-900 rounded-lg border-2 border-gray-200 dark:border-emerald-900 transition-all duration-200;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.15),
+                0 2px 6px rgba(34, 197, 94, 0.1),
+                0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+  
+  .dark .card {
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3),
+                0 2px 6px rgba(34, 197, 94, 0.2),
+                0 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  
+  .input-field {
+    @apply w-full bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-emerald-800 rounded-lg px-4 py-3 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #111827;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4ade80;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #059669;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #22c55e;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}
+
+/* Loading animation */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Cart icon bounce */
+@keyframes cart-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.cart-bounce {
+  animation: cart-bounce 0.4s ease-out;
+}
+
+/* Glow animation */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.5);
+  }
+}
+
+.animate-glow {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Shadow effects */
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+}
+
+.shadow-glow-lg {
+  box-shadow: 0 0 30px rgba(34, 197, 94, 0.4);
+}
+
+.shadow-card {
+  box-shadow: 4px 4px 0px 0px rgba(34, 197, 94, 0.2);
+}
+
+.shadow-card-hover {
+  box-shadow: 6px 6px 0px 0px rgba(34, 197, 94, 0.3);
+}
+
+.shadow-store {
+  box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3),
+              0 6px 10px rgba(34, 197, 94, 0.2),
+              0 2px 4px rgba(0, 0, 0, 0.15);
+  border: 3px solid rgba(34, 197, 94, 0.2);
+}
+
+/* Image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.medicine-image {
+  width: 100%;
+  height: 12rem;
+  object-fit: contain;
+  background: linear-gradient(to bottom right, #ffffff, #f9fafb);
+  border-radius: 0;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 25px rgba(34, 197, 94, 0.4),
+              0 6px 12px rgba(34, 197, 94, 0.3),
+              0 3px 6px rgba(0, 0, 0, 0.2);
+  border: 3px solid rgba(34, 197, 94, 0.2);
+}
+
+.medicine-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(34, 197, 94, 0.5),
+              0 12px 20px rgba(34, 197, 94, 0.4),
+              0 6px 10px rgba(0, 0, 0, 0.25);
+  border-color: rgba(34, 197, 94, 0.4);
+}
+
+.dark .medicine-image {
+  background: linear-gradient(to bottom right, rgba(31, 41, 55, 0.8), rgba(6, 78, 59, 0.3));
+  box-shadow: 0 10px 25px rgba(34, 197, 94, 0.5),
+              0 6px 12px rgba(34, 197, 94, 0.4),
+              0 3px 6px rgba(0, 0, 0, 0.6);
+  border: 3px solid rgba(34, 197, 94, 0.4);
+}
+
+.dark .medicine-image:hover {
+  box-shadow: 0 20px 40px rgba(34, 197, 94, 0.6),
+              0 12px 20px rgba(34, 197, 94, 0.5),
+              0 6px 10px rgba(0, 0, 0, 0.7);
+  border-color: rgba(34, 197, 94, 0.6);
+}
+
+/* Auto-slide animation for stores */
+@keyframes store-auto-slide {
+  0%, 33.33% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  36.33%, 100% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
+.store-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  opacity: 0;
+}
+
+.store-slide:nth-child(1) {
+  animation: store-auto-slide 12s infinite;
+  animation-delay: 0s;
+}
+
+.store-slide:nth-child(2) {
+  animation: store-auto-slide 12s infinite;
+  animation-delay: 4s;
+}
+
+.store-slide:nth-child(3) {
+  animation: store-auto-slide 12s infinite;
+  animation-delay: 8s;
+}
+
+/* Dark theme gradient background */
+.dark body {
+  background: linear-gradient(to bottom right, #030712, #111827, rgba(6, 78, 59, 0.3));
+}
